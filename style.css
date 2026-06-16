@@ -1266,6 +1266,19 @@ body.is-loading { overflow: hidden; }
   color: var(--muted);
   text-align: center;
 }
+.subsidy-legal-note {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: #F8F5EF;
+  border-left: 3px solid #B9935A;
+  border-radius: 4px;
+}
+.subsidy-legal-note p {
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
 
 /* ══════════════════════════════════════════
    SERVICE AREA
