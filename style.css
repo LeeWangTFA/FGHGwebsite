@@ -1514,6 +1514,11 @@ body.is-loading { overflow: hidden; }
   color: var(--ink);
   margin-bottom: 8px;
 }
+.icon-phone-gold {
+  display: inline-flex;
+  color: var(--coral);
+  vertical-align: -2px;
+}
 .contact-line-id { font-size: 16px; color: var(--muted); margin-bottom: 24px; }
 .contact-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .contact-btns .btn { padding: 13px 22px; font-size: 16px; }
@@ -1584,9 +1589,8 @@ body.is-loading { overflow: hidden; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 5px rgba(0,0,0,0.16);
 }
 .fixed-btn--line {
-  background: var(--gold-gloss), var(--color-primary-dark);
-  color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 5px rgba(0,0,0,0.16);
+  background: var(--cream);
+  color: var(--coral);
 }
 .fixed-btn--line svg { flex-shrink: 0; }
 
@@ -1607,6 +1611,9 @@ body.is-loading { overflow: hidden; }
 
   /* Hero */
   .hero-section { height: 88vh; min-height: 520px; }
+  /* 手機版空間有限，CTA 按鈕與「向下探索」容易疊在一起；
+     底部已有固定按鈕列引導動作，這裡直接隱藏即可 */
+  .hero-scroll-hint { display: none; }
   .hero-overlay { padding: 0 36px 52px 36px; }
   .hero-title { font-size: clamp(2.4rem, 7vw, 3.6rem); }
   .hero-sub { font-size: 0.84rem; margin-bottom: 24px; }
@@ -1752,6 +1759,16 @@ body.is-loading { overflow: hidden; }
   font-size: 13px;
   color: var(--muted);
   letter-spacing: 0.02em;
+}
+.testimonial-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+.testimonial-cta-text {
+  font-size: 17px;
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 18px;
 }
 @media (max-width: 900px) {
   .testimonial-grid { grid-template-columns: 1fr; }
