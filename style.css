@@ -1390,6 +1390,16 @@ body.is-loading { overflow: hidden; }
   font-size: 0.7em;
   top: 0.25em;
 }
+.phi-intent-label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 8px 0 24px;
+}
 .phi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
