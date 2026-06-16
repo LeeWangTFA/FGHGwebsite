@@ -108,6 +108,79 @@ ul { list-style: none; }
   padding: 0 28px;
 }
 
+/* ══════════════════════════════════════════
+   SITE LOADER — 輪轉的金 G，車正穩穩在路上
+══════════════════════════════════════════ */
+body.is-loading { overflow: hidden; }
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  background: var(--cream);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.site-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--coral-glow), transparent 70%);
+  filter: blur(18px);
+  animation: loaderGlow 2.4s ease-in-out infinite;
+}
+
+.loader-mark {
+  position: relative;
+  width: 86px;
+}
+.loader-mark svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 22px rgba(28, 28, 30, 0.14));
+}
+.loader-mark-wheel {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: loaderSpin 2.2s linear infinite;
+}
+
+.loader-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.02rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeUp 0.7s 0.4s ease forwards;
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes loaderGlow {
+  0%, 100% { opacity: 0.35; transform: scale(0.92); }
+  50%      { opacity: 0.65; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-mark-wheel,
+  .loader-glow { animation: none; }
+}
 
 /* ══════════════════════════════════════════
    NAVIGATION  — frosted glass

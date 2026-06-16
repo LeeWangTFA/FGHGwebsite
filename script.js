@@ -1,4 +1,30 @@
 /* ══════════════════════════════════════════
+   SITE LOADER
+══════════════════════════════════════════ */
+(() => {
+  const loader = document.getElementById('siteLoader');
+  if (!loader) return;
+
+  const MIN_VISIBLE = 900;   // ms — 讓滾輪動畫至少完整轉一輪，避免一閃即逝
+  const MAX_WAIT     = 4000; // ms — 保底逾時，避免極端網路下卡住不放
+  const start = Date.now();
+  let done = false;
+
+  function hideLoader() {
+    if (done) return;
+    done = true;
+    const wait = Math.max(0, MIN_VISIBLE - (Date.now() - start));
+    setTimeout(() => {
+      loader.classList.add('is-hidden');
+      document.body.classList.remove('is-loading');
+    }, wait);
+  }
+
+  window.addEventListener('load', hideLoader);
+  setTimeout(hideLoader, MAX_WAIT);
+})();
+
+/* ══════════════════════════════════════════
    NAV SCROLL STATE + HERO PARALLAX
 ══════════════════════════════════════════ */
 const navbar      = document.getElementById('navbar');
