@@ -1589,8 +1589,9 @@ body.is-loading { overflow: hidden; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 5px rgba(0,0,0,0.16);
 }
 .fixed-btn--line {
-  background: var(--cream);
+  background: var(--gold-gloss), var(--cream);
   color: var(--coral);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -2px 5px rgba(0,0,0,0.05);
 }
 .fixed-btn--line svg { flex-shrink: 0; }
 
