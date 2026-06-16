@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>首圖位置調整工具（手機 / iPad Pro）</title>
+<style>
+  body { font-family: -apple-system, "PingFang TC", sans-serif; background:#f5ede8; padding:24px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  p.hint { color:#666; font-size:14px; margin-bottom:24px; line-height:1.6; max-width:640px; }
+  .layout { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; }
+  .card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .name { font-weight:700; margin-bottom:4px; font-size:14px; }
+  .scope { font-size:12px; color:#999; margin-bottom:8px; }
+  .frame {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(185,147,90,0.25);
+    background-size: cover;
+    cursor: grab;
+    user-select: none;
+    position: relative;
+  }
+  .frame.dragging { cursor: grabbing; }
+  .frame .frame-label {
+    position:absolute; bottom:10px; left:10px; right:10px;
+    color:#fff; font-size:13px; text-shadow:0 1px 4px rgba(0,0,0,.6);
+    pointer-events:none;
+  }
+  .controls { margin-top:12px; display:flex; align-items:center; gap:10px; font-size:13px; }
+  .controls input[type=range] { flex:1; }
+  .value { font-family: ui-monospace, monospace; font-size:13px; background:#1c1c1e; color:#d8c6a3; padding:10px 14px; border-radius:8px; margin-top:10px; white-space:pre; }
+  button.reset, button.copy {
+    font-size:12px; padding:5px 12px; border-radius:6px; border:1px solid #ccc;
+    background:#fafafa; cursor:pointer;
+  }
+  button.copy { background:#B9935A; border-color:#B9935A; color:#fff; font-weight:700; margin-top:8px; }
+</style>
+</head>
+<body>
+<h1>首圖位置調整工具（手機 / iPad Pro）</h1>
+<p class="hint">
+  每張框框的長寬比例跟對應裝置上看到的首圖一樣。直接在照片上「按住拖拉」把奶奶拉回畫面裡，
+  下方滑桿可以放大讓主體更明顯。調好後按「複製 CSS」貼給我 — 各自只會套用到對應的尺寸範圍，
+  不會互相影響，也不會動到電腦版。
+</p>
+
+<div class="layout">
+  <div class="card">
+    <div class="name">📱 手機版 (≤900px)</div>
+    <div class="scope">已套用，可在此微調</div>
+    <div class="frame" id="frame-mobile" data-init-x="79" data-init-y="28" data-init-zoom="243"
+         style="width:230px; height:307px; background-image:url('image.png')">
+      <div class="frame-label">手機畫面</div>
+    </div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="300" value="243" id="zoom-mobile">
+      <button class="reset" id="reset-mobile">重設</button>
+    </div>
+    <div class="value" id="out-mobile"></div>
+    <button class="copy" data-target="out-mobile">複製 CSS</button>
+  </div>
+
+  <div class="card">
+    <div class="name">📐 iPad Pro 直向 (901–1366px)</div>
+    <div class="scope">寬度 901px ~ 1366px 區間（含直向與橫向），不影響手機版與電腦版</div>
+    <div class="frame" id="frame-ipad" data-init-x="50" data-init-y="28" data-init-zoom="100"
+         style="width:280px; height:373px; background-image:url('image.png')">
+      <div class="frame-label">iPad Pro 直向</div>
+    </div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="300" value="100" id="zoom-ipad">
+      <button class="reset" id="reset-ipad">重設</button>
+    </div>
+    <div class="value" id="out-ipad"></div>
+    <button class="copy" data-target="out-ipad">複製 CSS</button>
+  </div>
+</div>
+
+<script>
+function setupFrame({ id, zoomId, resetId, outId, mediaQuery }) {
+  const frame = document.getElementById(id);
+  const initX = Number(frame.dataset.initX);
+  const initY = Number(frame.dataset.initY);
+  const initZoom = Number(frame.dataset.initZoom);
+  let pos = { x: initX, y: initY };
+  let zoom = initZoom;
+  let dragging = false;
+  let start = { x: 0, y: 0 };
+  let startPos = { x: initX, y: initY };
+
+  const out = document.getElementById(outId);
+  const zoomSlider = document.getElementById(zoomId);
+  const resetBtn = document.getElementById(resetId);
+
+  function render() {
+    frame.style.backgroundPosition = `${pos.x}% ${pos.y}%`;
+    const css = `${mediaQuery} {\n  .hero-img { object-position: ${pos.x.toFixed(0)}% ${pos.y.toFixed(0)}%;` +
+      (zoom !== 100 ? ` transform: scale(${(zoom/100).toFixed(2)});` : '') +
+      ` }\n}`;
+    out.textContent = css;
+  }
+
+  frame.addEventListener('mousedown', e => {
+    dragging = true;
+    frame.classList.add('dragging');
+    start = { x: e.clientX, y: e.clientY };
+    startPos = { ...pos };
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const rect = frame.getBoundingClientRect();
+    const dx = (e.clientX - start.x) / rect.width * 100;
+    const dy = (e.clientY - start.y) / rect.height * 100;
+    pos.x = Math.min(100, Math.max(0, startPos.x - dx));
+    pos.y = Math.min(100, Math.max(0, startPos.y - dy));
+    render();
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    frame.classList.remove('dragging');
+  });
+
+  frame.addEventListener('touchstart', e => {
+    dragging = true;
+    const t = e.touches[0];
+    start = { x: t.clientX, y: t.clientY };
+    startPos = { ...pos };
+  }, { passive: true });
+  frame.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    const t = e.touches[0];
+    const rect = frame.getBoundingClientRect();
+    const dx = (t.clientX - start.x) / rect.width * 100;
+    const dy = (t.clientY - start.y) / rect.height * 100;
+    pos.x = Math.min(100, Math.max(0, startPos.x - dx));
+    pos.y = Math.min(100, Math.max(0, startPos.y - dy));
+    render();
+  }, { passive: true });
+  frame.addEventListener('touchend', () => { dragging = false; });
+
+  zoomSlider.addEventListener('input', e => {
+    zoom = Number(e.target.value);
+    render();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    pos = { x: initX, y: initY };
+    zoom = initZoom;
+    zoomSlider.value = initZoom;
+    render();
+  });
+
+  render();
+}
+
+setupFrame({
+  id: 'frame-mobile', zoomId: 'zoom-mobile', resetId: 'reset-mobile', outId: 'out-mobile',
+  mediaQuery: '@media (max-width: 900px)',
+});
+setupFrame({
+  id: 'frame-ipad', zoomId: 'zoom-ipad', resetId: 'reset-ipad', outId: 'out-ipad',
+  mediaQuery: '@media (min-width: 901px) and (max-width: 1366px)',
+});
+
+document.querySelectorAll('.copy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const text = document.getElementById(btn.dataset.target).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '已複製 ✓';
+      setTimeout(() => btn.textContent = orig, 1200);
+    });
+  });
+});
+</script>
+</body>
+</html>

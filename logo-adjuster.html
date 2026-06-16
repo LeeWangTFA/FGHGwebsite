@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Logo 大小／位置調整工具</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { margin:0; font-family:-apple-system,"PingFang TC",sans-serif; background:#f0eee9; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  p.hint { color:#666; font-size:14px; margin:0 0 24px; line-height:1.6; }
+
+  .section { background:#fff; border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,.07); margin-bottom:28px; overflow:hidden; }
+  .section .title { font-size:14px; font-weight:700; padding:12px 16px; background:#f5f2ec; border-bottom:1px solid #ece8e1; }
+
+  .stage { display:flex; align-items:center; height:120px; padding:0 28px; }
+  .stage.light { background:#fff; }
+  .stage.dark  { background: linear-gradient(135deg,#2a2118,#1c1c1e 60%); }
+  .stage.footer-dark { background:#0C0F18; }
+
+  /* re-create just enough nav/footer structure for an accurate preview */
+  .preview-nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .preview-ft-row    { display:flex; align-items:center; gap:10px; }
+
+  .controls { padding:16px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; border-top:1px solid #f1eee8; }
+  .ctrl-group { display:flex; align-items:center; gap:10px; font-size:13px; color:#444; }
+  .ctrl-group input[type=range] { width:140px; }
+  .ctrl-group .num { font-family: ui-monospace, monospace; font-size:12px; background:#f0f0f0; padding:2px 6px; border-radius:4px; min-width:42px; text-align:center; }
+
+  .dpad { display:grid; grid-template-columns:32px 32px 32px; grid-template-rows:32px 32px 32px; gap:3px; }
+  .dpad button { font-size:14px; border:1px solid #ddd; border-radius:6px; background:#fafafa; cursor:pointer; line-height:1; }
+  .dpad button:hover { background:#eee; }
+  .dpad .center { background:#fff; border-style:dashed; color:#999; cursor:pointer; }
+
+  button.reset-btn, button.copy-btn {
+    font-size:12px; padding:6px 12px; border-radius:8px; border:1px solid #ccc;
+    background:#fafafa; cursor:pointer;
+  }
+  button.copy-btn { background: var(--coral); color:#fff; border-color: var(--coral); font-weight:700; }
+
+  .output { margin: 0 16px 16px; }
+  .output pre {
+    font-family: ui-monospace, monospace; font-size:12.5px; background:#1c1c1e; color:#d8c6a3;
+    padding:14px 16px; border-radius:10px; white-space:pre; overflow-x:auto; margin: 0 0 10px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Logo 大小／位置調整工具</h1>
+  <p class="hint">
+    用滑桿放大縮小，用方向鍵（↑↓←→）微調上下左右位置 — 下面的預覽是用網站「真正的 CSS」即時呈現，跟正式網站看到的會一致。
+    調好後按「複製 CSS」，把整段貼給我（或直接貼到 <code>style.css</code> 最上面 <code>:root</code> 區塊取代原本那幾行），我就會幫你套用。
+  </p>
+
+  <!-- ───────── 導覽列 Logo ───────── -->
+  <div class="section">
+    <div class="title">導覽列 Logo（一組設定，同時套用在下面兩種狀態）</div>
+
+    <div class="stage light">
+      <a href="#" class="preview-nav-logo" id="navLogoLight">
+        <img src="logo-icon.png" alt="" class="logo-mark">
+        <span class="logo-text">
+          <span class="logo-en">FeelGood<span class="logo-accent">Heal</span>Good</span>
+          <span class="logo-zh">好心情，好病情</span>
+        </span>
+      </a>
+    </div>
+    <div class="stage dark">
+      <a href="#" class="preview-nav-logo" id="navLogoDark">
+        <img src="logo-icon-light.png" alt="" class="logo-mark">
+        <span class="logo-text">
+          <span class="logo-en" style="color:#fff;">FeelGood<span class="logo-accent">Heal</span>Good</span>
+          <span class="logo-zh" style="color:rgba(255,255,255,.38);">好心情，好病情</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="controls">
+      <div class="ctrl-group">
+        放大縮小
+        <input type="range" id="headerSize" min="20" max="80" value="44">
+        <span class="num" id="headerSizeVal">44px</span>
+      </div>
+      <div class="ctrl-group">
+        位置
+        <div class="dpad" id="headerDpad">
+          <span></span><button data-dx="0" data-dy="-1">↑</button><span></span>
+          <button data-dx="-1" data-dy="0">←</button><button class="center" data-reset>⟲</button><button data-dx="1" data-dy="0">→</button>
+          <span></span><button data-dx="0" data-dy="1">↓</button><span></span>
+        </div>
+        <span class="num" id="headerPosVal">0, 0</span>
+      </div>
+    </div>
+    <div class="output">
+      <pre id="headerOut">--logo-size-header: 44px;
+--logo-offset-header-x: 0px;
+--logo-offset-header-y: 0px;</pre>
+      <button class="copy-btn" data-copy="headerOut">複製 CSS</button>
+    </div>
+  </div>
+
+  <!-- ───────── Footer Logo ───────── -->
+  <div class="section">
+    <div class="title">Footer Logo</div>
+
+    <div class="stage footer-dark">
+      <div class="preview-ft-row" id="ftLogo" style="align-items:flex-start;">
+        <img src="logo-icon-light.png" alt="" class="logo-mark">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span class="ft-logo">FeelGood<span>Heal</span>Good</span>
+          <span class="ft-tagline">好心情，好病情</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="ctrl-group">
+        放大縮小
+        <input type="range" id="footerSize" min="20" max="80" value="38">
+        <span class="num" id="footerSizeVal">38px</span>
+      </div>
+      <div class="ctrl-group">
+        位置
+        <div class="dpad" id="footerDpad">
+          <span></span><button data-dx="0" data-dy="-1">↑</button><span></span>
+          <button data-dx="-1" data-dy="0">←</button><button class="center" data-reset>⟲</button><button data-dx="1" data-dy="0">→</button>
+          <span></span><button data-dx="0" data-dy="1">↓</button><span></span>
+        </div>
+        <span class="num" id="footerPosVal">0, 0</span>
+      </div>
+    </div>
+    <div class="output">
+      <pre id="footerOut">--logo-size-footer: 38px;
+--logo-offset-footer-x: 0px;
+--logo-offset-footer-y: 0px;</pre>
+      <button class="copy-btn" data-copy="footerOut">複製 CSS</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const root = document.documentElement.style;
+
+function setupLogoControl({ sizeInput, sizeLabel, dpad, posLabel, outEl, varSize, varX, varY, defaultSize }) {
+  let x = 0, y = 0;
+
+  function render() {
+    const size = Number(sizeInput.value);
+    root.setProperty(varSize, size + 'px');
+    root.setProperty(varX, x + 'px');
+    root.setProperty(varY, y + 'px');
+    sizeLabel.textContent = size + 'px';
+    posLabel.textContent = `${x}, ${y}`;
+    outEl.textContent =
+`${varSize}: ${size}px;
+${varX}: ${x}px;
+${varY}: ${y}px;`;
+  }
+
+  sizeInput.addEventListener('input', render);
+
+  dpad.querySelectorAll('button[data-dx]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      x += Number(btn.dataset.dx) * 2;
+      y += Number(btn.dataset.dy) * 2;
+      render();
+    });
+  });
+  dpad.querySelector('[data-reset]').addEventListener('click', () => {
+    x = 0; y = 0;
+    sizeInput.value = defaultSize;
+    render();
+  });
+
+  render();
+}
+
+setupLogoControl({
+  sizeInput: document.getElementById('headerSize'),
+  sizeLabel: document.getElementById('headerSizeVal'),
+  dpad: document.getElementById('headerDpad'),
+  posLabel: document.getElementById('headerPosVal'),
+  outEl: document.getElementById('headerOut'),
+  varSize: '--logo-size-header',
+  varX: '--logo-offset-header-x',
+  varY: '--logo-offset-header-y',
+  defaultSize: 44,
+});
+
+setupLogoControl({
+  sizeInput: document.getElementById('footerSize'),
+  sizeLabel: document.getElementById('footerSizeVal'),
+  dpad: document.getElementById('footerDpad'),
+  posLabel: document.getElementById('footerPosVal'),
+  outEl: document.getElementById('footerOut'),
+  varSize: '--logo-size-footer',
+  varX: '--logo-offset-footer-x',
+  varY: '--logo-offset-footer-y',
+  defaultSize: 38,
+});
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const text = document.getElementById(btn.dataset.copy).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '已複製 ✓';
+      setTimeout(() => btn.textContent = orig, 1200);
+    });
+  });
+});
+</script>
+</body>
+</html>

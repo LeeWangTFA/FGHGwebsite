@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>車輛照片位置調整工具</title>
+<style>
+  body { font-family: -apple-system, "PingFang TC", sans-serif; background:#f5ede8; padding:24px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  p.hint { color:#666; font-size:14px; margin-bottom:24px; }
+  .grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; max-width:900px; }
+  .card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .name { font-weight:700; margin-bottom:8px; }
+  .frame {
+    width:100%; height:220px; border-radius:8px; overflow:hidden;
+    border:1px solid rgba(229,90,58,0.15);
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: grab;
+    user-select:none;
+    position: relative;
+  }
+  .frame.tall { height:560px; }
+  .frame.dragging { cursor: grabbing; }
+  .controls { margin-top:10px; display:flex; align-items:center; gap:10px; font-size:13px; }
+  .controls input[type=range] { flex:1; }
+  .value { font-family: monospace; font-size:13px; background:#f0f0f0; padding:4px 8px; border-radius:4px; margin-top:8px; display:inline-block; }
+  button.reset { font-size:12px; padding:4px 10px; border-radius:6px; border:1px solid #ccc; background:#fafafa; cursor:pointer; }
+</style>
+</head>
+<body>
+<h1>車輛照片位置調整工具</h1>
+<p class="hint">直接在照片上「按住拖拉」就能移動構圖；下方滑桿可以放大/縮小。調整好之後，把每張下面顯示的 CSS 值貼回來給我，我幫您套用到網站。</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="name">福斯 T6.1 (fleet-t6.png)</div>
+    <div class="frame" data-name="t6" data-init-x="51" data-init-y="41" style="background-image:url('fleet-t6.png')"></div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="250" value="100" data-zoom="t6">
+      <button class="reset" data-reset="t6">重設</button>
+    </div>
+    <div class="value" data-out="t6">object-position: 51% 41%;</div>
+  </div>
+
+  <div class="card">
+    <div class="name">福斯 Caddy (fleet-caddy.png)</div>
+    <div class="frame" data-name="caddy" data-init-x="50" data-init-y="72" style="background-image:url('fleet-caddy.png')"></div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="250" value="100" data-zoom="caddy">
+      <button class="reset" data-reset="caddy">重設</button>
+    </div>
+    <div class="value" data-out="caddy">object-position: 50% 72%;</div>
+  </div>
+
+  <div class="card">
+    <div class="name">斜坡板 (fleet-ramp.jpg)</div>
+    <div class="frame" data-name="ramp" data-init-x="32" data-init-y="78" style="background-image:url('fleet-ramp.jpg')"></div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="250" value="100" data-zoom="ramp">
+      <button class="reset" data-reset="ramp">重設</button>
+    </div>
+    <div class="value" data-out="ramp">object-position: 32% 78%;</div>
+  </div>
+
+  <div class="card">
+    <div class="name">電動升降機 (fleet-lift.jpg)</div>
+    <div class="frame" data-name="lift" data-init-x="43" data-init-y="85" style="background-image:url('fleet-lift.jpg')"></div>
+    <div class="controls">
+      縮放 <input type="range" min="100" max="250" value="100" data-zoom="lift">
+      <button class="reset" data-reset="lift">重設</button>
+    </div>
+    <div class="value" data-out="lift">object-position: 43% 85%;</div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.frame').forEach(frame => {
+  const name = frame.dataset.name;
+  const initX = frame.dataset.initX ? Number(frame.dataset.initX) : 50;
+  const initY = frame.dataset.initY ? Number(frame.dataset.initY) : 50;
+  let pos = { x: initX, y: initY };
+  let zoom = 100;
+  let dragging = false;
+  let start = { x: 0, y: 0 };
+  let startPos = { x: initX, y: initY };
+
+  const out = document.querySelector(`[data-out="${name}"]`);
+  const zoomSlider = document.querySelector(`[data-zoom="${name}"]`);
+  const resetBtn = document.querySelector(`[data-reset="${name}"]`);
+
+  function render() {
+    frame.style.backgroundPosition = `${pos.x}% ${pos.y}%`;
+    frame.style.backgroundSize = `${zoom}%`;
+    out.textContent = `object-position: ${pos.x.toFixed(0)}% ${pos.y.toFixed(0)}%;` +
+      (zoom !== 100 ? ` /* 放大 ${zoom}% — 需另外用 transform: scale(${(zoom/100).toFixed(2)}) 搭配 transform-origin 才能在 <img> 上重現 */` : '');
+  }
+
+  frame.addEventListener('mousedown', e => {
+    dragging = true;
+    frame.classList.add('dragging');
+    start = { x: e.clientX, y: e.clientY };
+    startPos = { ...pos };
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const rect = frame.getBoundingClientRect();
+    const dx = (e.clientX - start.x) / rect.width * 100;
+    const dy = (e.clientY - start.y) / rect.height * 100;
+    // dragging right should reveal what's to the left -> move position the other way
+    pos.x = Math.min(100, Math.max(0, startPos.x - dx));
+    pos.y = Math.min(100, Math.max(0, startPos.y - dy));
+    render();
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    frame.classList.remove('dragging');
+  });
+
+  zoomSlider.addEventListener('input', e => {
+    zoom = Number(e.target.value);
+    render();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    pos = { x: initX, y: initY };
+    zoom = 100;
+    zoomSlider.value = 100;
+    render();
+  });
+
+  render();
+});
+</script>
+</body>
+</html>
+</content>

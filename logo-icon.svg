@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="FGHG 9.8 smooth vector logo icon">
+  <defs>
+    <style>
+      .main{fill:none;stroke:#1C1C1E;stroke-width:50;stroke-linecap:round;stroke-linejoin:round;}
+      .accent{fill:none;stroke:#B9935A;stroke-width:50;stroke-linecap:round;stroke-linejoin:round;}
+    </style>
+  </defs>
+  <!-- main outer G / integrated F-H structure, rebuilt as smooth Bezier strokes -->
+  <path class="main" d="M 695 295
+    C 650 228, 555 185, 458 202
+    C 342 222, 259 320, 253 439
+    C 247 569, 333 686, 456 719
+    C 487 727, 512 704, 512 674
+    L 512 454
+    C 512 431, 493 412, 470 412
+    L 303 412"/>
+  <path class="main" d="M 512 529
+    C 512 506, 531 487, 554 487
+    L 685 487
+    C 730 487, 766 523, 766 568
+    L 766 676"/>
+  <!-- small G / wheel, left-opening C with short horizontal bar -->
+  <path class="accent" d="M 640 589
+    C 607 589, 580 615, 580 649
+    C 580 682, 607 709, 640 709
+    C 669 709, 693 690, 699 663"/>
+  <path class="accent" d="M 626 649 L 695 649"/>
+</svg>
