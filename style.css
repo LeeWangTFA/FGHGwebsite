@@ -32,7 +32,7 @@
   /* Text */
   --ink:          var(--color-dark);
   --body:         var(--color-text);
-  --muted:        #6B6B6E; /* 加深以符合 WCAG AA 對比（原 #7A7A7C 在白/暖白底僅約 3.9–4.3:1） */
+  --muted:        #4F4F52; /* 長輩客人反映內文太淺看不清楚，再加深兩階（原 #6B6B6E），維持灰色不轉黑 */
 
   /* Dark palette (animation + philosophy) */
   --deep:         #0C0F18;
