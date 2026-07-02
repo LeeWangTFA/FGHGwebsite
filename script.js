@@ -137,6 +137,36 @@ document.addEventListener('mousemove', e => {
 });
 
 /* ══════════════════════════════════════════
+   CONVERSION TRACKING（GTM dataLayer）
+   涵蓋所有帶 data-cta-type 的按鈕：
+   - call         → tel: 來電按鈕
+   - line_external→ 直接外連 LINE（lin.ee / line.me）
+   - line_intent  → 導向 #contact 聯絡區塊的 LINE 意圖按鈕
+   GTM 容器內的 GA4 事件標籤讀取這裡 push 進 dataLayer 的參數。
+══════════════════════════════════════════ */
+window.dataLayer = window.dataLayer || [];
+
+const CTA_EVENT_NAME = {
+  call: 'click_to_call',
+  line_external: 'click_to_line',
+  line_intent: 'click_cta_intent',
+};
+
+document.addEventListener('click', e => {
+  const cta = e.target.closest('[data-cta-type]');
+  if (!cta) return;
+
+  const ctaType = cta.dataset.ctaType;
+  window.dataLayer.push({
+    event: CTA_EVENT_NAME[ctaType] || 'click_cta',
+    cta_type: ctaType,
+    cta_location: cta.dataset.ctaLocation || '',
+    cta_label: cta.dataset.ctaLabel || cta.textContent.trim(),
+    cta_destination: cta.getAttribute('href') || '',
+  });
+});
+
+/* ══════════════════════════════════════════
    DARK QUOTE WORD REVEAL
 ══════════════════════════════════════════ */
 const darkQuoteSection = document.querySelector('.dark-quote-section');
