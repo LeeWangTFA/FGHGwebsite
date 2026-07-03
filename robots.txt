@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI search / answer-engine crawlers — explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Training-only crawler, not a search feature — blocked
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://feelgoodhealgood.tw/sitemap.xml

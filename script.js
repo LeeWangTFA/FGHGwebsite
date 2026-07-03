@@ -34,7 +34,7 @@ const heroImg     = document.querySelector('.hero-img');
 function onScroll() {
   const sy    = window.scrollY;
   const heroH = heroSection?.offsetHeight || window.innerHeight;
-  const inHero = sy < heroH * 0.85;
+  const inHero = !!heroSection && sy < heroH * 0.85;
 
   navbar.classList.toggle('on-dark',  inHero);
   navbar.classList.toggle('scrolled', !inHero && sy > 60);

@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 安全性 HTTP 標頭
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; font-src 'self' data:; object-src 'none'; base-uri 'self'"
+</IfModule>
+
+# 關閉目錄列表
+Options -Indexes
+
+# 擋掉 .git、.env 等敏感檔案
+<FilesMatch "^\.(git|env|htaccess|htpasswd)">
+  Require all denied
+</FilesMatch>
