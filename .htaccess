@@ -2,6 +2,10 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# www 導向 apex 網域
+RewriteCond %{HTTP_HOST} ^www\.feelgoodhealgood\.tw$ [NC]
+RewriteRule ^(.*)$ https://feelgoodhealgood.tw/$1 [L,R=301]
+
 # 安全性 HTTP 標頭
 <IfModule mod_headers.c>
   Header always set X-Frame-Options "SAMEORIGIN"

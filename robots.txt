@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /fleet-photo-adjuster.html
+Disallow: /hero-photo-adjuster.html
+Disallow: /logo-adjuster.html
+Disallow: /showcase.html
 
 # AI search / answer-engine crawlers — explicitly welcomed
 User-agent: GPTBot

@@ -5,7 +5,7 @@
   const loader = document.getElementById('siteLoader');
   if (!loader) return;
 
-  const MIN_VISIBLE = 900;   // ms — 讓滾輪動畫至少完整轉一輪，避免一閃即逝
+  const MIN_VISIBLE = 350;   // ms — 避免載入畫面一閃即逝，同時不拖慢可互動時間
   const MAX_WAIT     = 4000; // ms — 保底逾時，避免極端網路下卡住不放
   const start = Date.now();
   let done = false;
