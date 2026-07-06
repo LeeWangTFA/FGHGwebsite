@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 918" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <radialGradient id="zone" cx="45%" cy="48%" r="62%">
+      <stop offset="0%" stop-color="#B9935A" stop-opacity="0.14"/>
+      <stop offset="70%" stop-color="#B9935A" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#B9935A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <!-- 底 -->
+  <rect width="1100" height="918" rx="24" fill="#F8F5EF"/>
+  <rect x="14" y="14" width="1072" height="890" rx="18" fill="none" stroke="#E7DCC8" stroke-width="1.5"/>
+
+  <!-- 服務範圍暈染 -->
+  <polygon points="130,190 420,170 740,300 900,620 760,720 380,560 170,420" fill="url(#zone)" filter="url(#soft)"/>
+
+  <!-- 河流（大漢溪→淡水河、新店溪，示意走向） -->
+  <path d="M 60,480 C 250,420 400,330 520,180 C 545,148 555,110 560,60"
+        fill="none" stroke="#E9E0D0" stroke-width="30" stroke-linecap="round"/>
+  <path d="M 870,660 C 815,510 765,420 720,360 C 660,270 580,220 522,182"
+        fill="none" stroke="#E9E0D0" stroke-width="24" stroke-linecap="round"/>
+  <text x="110" y="452" font-size="20" fill="#C9BCA4" transform="rotate(-17 110 452)" letter-spacing="6">大漢溪</text>
+  <text x="452" y="262" font-size="20" fill="#C9BCA4" transform="rotate(-51 452 262)" letter-spacing="6">淡水河</text>
+  <text x="788" y="505" font-size="20" fill="#C9BCA4" transform="rotate(-62 788 505)" letter-spacing="6">新店溪</text>
+
+  <!-- 台北市中心（參考點） -->
+  <circle cx="674" cy="163" r="10" fill="none" stroke="#B7AB93" stroke-width="3"/>
+  <text x="696" y="171" font-size="24" fill="#9A8E76">台北市中心</text>
+
+  <!-- 服務區（金點） -->
+  <g fill="#B9935A">
+    <circle cx="175" cy="248" r="14"/>
+    <circle cx="234" cy="376" r="14"/>
+    <circle cx="540" cy="445" r="14"/>
+    <circle cx="652" cy="397" r="14"/>
+    <circle cx="823" cy="616" r="14"/>
+  </g>
+  <g font-size="36" font-weight="500" fill="#1C1C1E">
+    <text x="130" y="304">新莊</text>
+    <text x="189" y="352">板橋</text>
+    <text x="493" y="421">中和</text>
+    <text x="674" y="440">永和</text>
+    <text x="776" y="590">新店</text>
+  </g>
+
+  <!-- 常送醫院（金十字） -->
+  <g>
+    <g transform="translate(189,205)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">台北醫院</text>
+    </g>
+    <g transform="translate(200,500)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="-20" y="48" font-size="26" fill="#4A4438">亞東醫院</text>
+    </g>
+    <g transform="translate(450,517)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="-24" y="48" font-size="26" fill="#4A4438">雙和醫院</text>
+    </g>
+    <g transform="translate(600,325)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="-22" y="9" font-size="26" fill="#4A4438" text-anchor="end">永和耕莘醫院</text>
+    </g>
+  </g>
+
+  <!-- 指北 -->
+  <g transform="translate(1022,80)">
+    <path d="M 0,-26 L 10,14 L 0,6 L -10,14 Z" fill="#B9935A"/>
+    <text x="0" y="42" font-size="22" fill="#9A8E76" text-anchor="middle">N</text>
+  </g>
+
+  <!-- 圖例 -->
+  <g transform="translate(58,806)">
+    <circle cx="10" cy="0" r="11" fill="#B9935A"/>
+    <text x="34" y="8" font-size="24" fill="#4A4438">主力服務區域</text>
+    <g transform="translate(230,0)">
+      <rect x="-2" y="-12" width="24" height="24" rx="6" fill="#1C1C1E"/>
+      <path d="M 4,0 H 16 M 10,-6 V 6" stroke="#B9935A" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="36" y="8" font-size="24" fill="#4A4438">常送醫院</text>
+    </g>
+    <text x="0" y="52" font-size="19" fill="#B0A48C">相對位置示意圖，非精確比例；大台北其他區域一樣服務，歡迎詢問</text>
+  </g>
+
+  <!-- 標題 -->
+  <text x="58" y="92" font-size="26" fill="#B9935A" letter-spacing="8" font-weight="500">大台北到府服務範圍</text>
+</svg>
