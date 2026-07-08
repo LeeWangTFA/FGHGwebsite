@@ -639,7 +639,7 @@ body.is-loading { overflow: hidden; }
   align-items: flex-end;
   padding: 0 80px 80px 60px;
 }
-.hero-content { max-width: 520px; }
+.hero-content { max-width: 620px; }
 
 /* ── Eyebrow with left accent border ── */
 .hero-eyebrow {
@@ -659,7 +659,7 @@ body.is-loading { overflow: hidden; }
 /* ── Main title: tight tracking, italic em for contrast ── */
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.6rem, 6.6vw, 7.2rem);
+  font-size: clamp(2.30rem, 7.4vw, 4.80rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.0;
@@ -669,7 +669,7 @@ body.is-loading { overflow: hidden; }
   transform: translateY(16px);
   animation: fadeUp 0.85s 0.38s ease forwards;
 }
-.hero-title span { display: block; margin-bottom: 4px; }
+.hero-title span { display: block; margin-bottom: 4px; color: #fff; }
 .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
 
 /* ── Decorative accent line above subtitle ── */
@@ -1748,7 +1748,7 @@ body.is-loading { overflow: hidden; }
      底部已有固定按鈕列引導動作，這裡直接隱藏即可 */
   .hero-scroll-hint { display: none; }
   .hero-overlay { padding: 0 36px 52px 36px; }
-  .hero-title { font-size: clamp(2.4rem, 7vw, 3.6rem); }
+  .hero-title { font-size: clamp(2.07rem, 6vw, 3.20rem); }
   .hero-sub { font-size: 0.84rem; margin-bottom: 24px; }
   .hero-img { object-position: 79% 28%; transform: scale(2.43); }
   .bridge-copy { padding: 64px 28px 72px; }
@@ -1783,7 +1783,7 @@ body.is-loading { overflow: hidden; }
 
 @media (max-width: 680px) {
   .hero-overlay { padding: 0 24px 44px 24px; }
-  .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .hero-title { font-size: clamp(1.84rem, 13vw, 2.30rem); }
   .hero-sub { font-size: 0.8rem; margin-bottom: 20px; }
   .hero-ctas .btn { padding: 11px 20px; font-size: 13px; }
   .hero-section::after { background: linear-gradient(to right, rgba(10,8,6,0.65) 0%, rgba(10,8,6,0.35) 55%, transparent 100%); }
