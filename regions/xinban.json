@@ -1,0 +1,37 @@
+{
+  "slug": "",
+  "region_name": "新莊・板橋（首頁）",
+  "meta_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood 好心情好病情｜大台北到府服務",
+  "meta_desc": "當你無法親自陪爸媽就醫，把接送交給我們。大台北無障礙輪椅接送（洗腎回診・醫院往返・復健接送，費用透明）與電動爬梯機上下樓（適用長照2.0補助，一般戶自付310元起）。主力服務新莊・板橋・中和・永和・新店，大台北其他區域皆可預約，客服洽詢週一至週日07:00–21:00。",
+  "og_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood｜大台北到府服務",
+  "og_desc": "你無法隨時在她身邊，但你可以選擇最好的代替。大台北無障礙輪椅接送與電動爬梯機上下樓（適用長照2.0補助），服務新莊・板橋・中和・永和・新店，客服洽詢週一至週日07:00–21:00。",
+  "twitter_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood",
+  "twitter_desc": "大台北地區專業無障礙輪椅接送（自費）、電動爬梯機上下樓服務（長照2.0補助適用）。",
+  "geo_region": "TW-NWT",
+  "geo_placename": "新北市、台北市",
+  "hero_eyebrow": "大台北地區 · 到府服務",
+  "area_section_desc": "FeelGoodHealGood 的無障礙接送與爬梯機服務涵蓋大台北地區，主力區域為新莊、板橋、中和、永和、新店；台北市與新北市其他區域一樣提供服務，歡迎來電或 LINE 詢問。",
+  "area_map_img": "area-map.svg",
+  "area_map_alt": "大台北地區服務範圍示意地圖，涵蓋新莊、板橋、中和、永和、新店，標示台北醫院、亞東醫院、雙和醫院、永和耕莘醫院",
+  "area_groups": ["新莊 ・ 板橋 ・ 中和", "永和 ・ 新店"],
+  "area_note": "不在上述區域？大台北其他區域我們一樣服務<br>歡迎來電或 LINE 確認，部分較遠區域可能酌收交通費用",
+  "contact_region_label": "立刻預約卡位",
+  "qr_img": "qr-xinban.png",
+  "qr_alt": "新莊・板橋區 LINE QR Code，點擊加好友",
+  "line_url": "https://lin.ee/QLKIggKl",
+  "line_oa_id": "@528ustwb",
+  "line_oa_message": "您好，我想詢問無障礙接送服務",
+  "phones": [
+    {"num": "0967-106-658", "tel": "0967106658", "name": "洪先生", "areas": ["新莊區", "板橋區"], "primary": false},
+    {"num": "0980-806-393", "tel": "0980806393", "name": "王先生", "areas": ["中和區", "永和區", "新店區"], "primary": true}
+  ],
+  "price_examples": [
+    {"person": "陳伯伯", "time": "早晨 ・ 7:30", "route": "永和（景安捷運站）→ 耕莘醫院", "need": "輪椅接送", "cost": "500–600 元"},
+    {"person": "林奶奶", "time": "中午 ・ 12:30", "route": "板橋（江北重劃區）→ 亞東醫院", "need": "輪椅接送", "cost": "600–700 元"},
+    {"person": "黃阿姨", "time": "晚上 ・ 19:30", "route": "新莊（迴龍捷運站）→ 台北醫院", "need": "輪椅接送", "cost": "700–800 元"}
+  ],
+  "footer_area_text": "大台北地區",
+  "area_served_cities": ["新莊", "板橋", "中和", "永和", "新店"],
+  "area_served_admin": ["新北市", "台北市"],
+  "jsonld_date_modified": "2026-07-06"
+}
