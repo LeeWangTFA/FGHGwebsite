@@ -13,7 +13,7 @@ RewriteRule ^(.*)$ https://feelgoodhealgood.tw/$1 [L,R=301]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://google.com; font-src 'self' data:; object-src 'none'; base-uri 'self'"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://google.com; font-src 'self' data: https://fonts.gstatic.com; object-src 'none'; base-uri 'self'"
 </IfModule>
 
 # 關閉目錄列表
@@ -23,3 +23,13 @@ Options -Indexes
 <FilesMatch "^\.(git|env|htaccess|htpasswd)">
   Require all denied
 </FilesMatch>
+
+# 擋掉內部調圖工具頁，避免非預期公開存取
+<FilesMatch "^(fleet-photo-adjuster|hero-photo-adjuster|logo-adjuster|showcase)\.html$">
+  Require all denied
+</FilesMatch>
+
+# 擋掉 regions/ 底下的建站用 JSON 原始資料，不開放直接下載
+<IfModule mod_alias.c>
+  RedirectMatch 403 ^/regions/.*\.json$
+</IfModule>

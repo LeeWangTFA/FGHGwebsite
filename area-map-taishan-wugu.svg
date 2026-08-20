@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 918" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <radialGradient id="zone" cx="45%" cy="48%" r="62%">
+      <stop offset="0%" stop-color="#B9935A" stop-opacity="0.14"/>
+      <stop offset="70%" stop-color="#B9935A" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#B9935A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <!-- 底 -->
+  <rect width="1100" height="918" rx="24" fill="#F8F5EF"/>
+  <rect x="14" y="14" width="1072" height="890" rx="18" fill="none" stroke="#E7DCC8" stroke-width="1.5"/>
+
+  <!-- 服務範圍暈染 -->
+  <polygon points="150,220 420,160 760,260 900,560 720,700 400,600 190,460" fill="url(#zone)" filter="url(#soft)"/>
+
+  <!-- 大漢溪（示意走向，流經五股、泰山一帶） -->
+  <path d="M 60,560 C 220,500 340,420 430,300 C 470,246 500,200 520,140"
+        fill="none" stroke="#E9E0D0" stroke-width="30" stroke-linecap="round"/>
+  <text x="130" y="500" font-size="20" fill="#C9BCA4" transform="rotate(-32 130 500)" letter-spacing="6">大漢溪</text>
+
+  <!-- 台北市中心（參考點） -->
+  <circle cx="120" cy="200" r="10" fill="none" stroke="#B7AB93" stroke-width="3"/>
+  <text x="142" y="208" font-size="24" fill="#9A8E76">台北市中心</text>
+
+  <!-- 服務區（金點） -->
+  <g fill="#B9935A">
+    <circle cx="300" cy="280" r="14"/>
+    <circle cx="260" cy="430" r="14"/>
+    <circle cx="620" cy="400" r="14"/>
+    <circle cx="770" cy="560" r="14"/>
+  </g>
+  <g font-size="36" font-weight="500" fill="#1C1C1E">
+    <text x="255" y="336">泰山</text>
+    <text x="196" y="406">五股</text>
+    <text x="576" y="376">林口</text>
+    <text x="726" y="536">龜山</text>
+  </g>
+
+  <!-- 常送醫院（金十字） -->
+  <g>
+    <g transform="translate(300,240)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">輔仁大學附設醫院</text>
+    </g>
+    <g transform="translate(150,560)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">亞東紀念醫院</text>
+    </g>
+    <g transform="translate(195,240)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="-22" y="9" font-size="26" fill="#4A4438" text-anchor="end">部立臺北醫院</text>
+    </g>
+    <g transform="translate(790,610)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">林口長庚紀念醫院</text>
+    </g>
+    <g transform="translate(830,700)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">衛生福利部桃園醫院</text>
+    </g>
+    <g transform="translate(420,510)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">新仁醫院</text>
+    </g>
+    <g transform="translate(420,590)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="26" fill="#4A4438">新泰綜合醫院</text>
+    </g>
+  </g>
+
+  <!-- 指北 -->
+  <g transform="translate(1022,80)">
+    <path d="M 0,-26 L 10,14 L 0,6 L -10,14 Z" fill="#B9935A"/>
+    <text x="0" y="42" font-size="22" fill="#9A8E76" text-anchor="middle">N</text>
+  </g>
+
+  <!-- 圖例 -->
+  <g transform="translate(58,806)">
+    <circle cx="10" cy="0" r="11" fill="#B9935A"/>
+    <text x="34" y="8" font-size="24" fill="#4A4438">主力服務區域</text>
+    <g transform="translate(230,0)">
+      <rect x="-2" y="-12" width="24" height="24" rx="6" fill="#1C1C1E"/>
+      <path d="M 4,0 H 16 M 10,-6 V 6" stroke="#B9935A" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="36" y="8" font-size="24" fill="#4A4438">常送醫院</text>
+    </g>
+    <text x="0" y="52" font-size="19" fill="#B0A48C">相對位置示意圖，非精確比例；鄰近地區一樣服務，歡迎詢問</text>
+  </g>
+
+  <!-- 標題 -->
+  <text x="58" y="92" font-size="26" fill="#B9935A" letter-spacing="8" font-weight="500">泰山・五股・林口・龜山到府服務範圍</text>
+</svg>

@@ -1,0 +1,38 @@
+{
+  "_說明": "泰山・五股・林口・龜山地區子頁。聯絡資訊（電話/LINE OA）與素材圖檔（地圖/QR Code）尚未到位，先標記「待確認」；build_regions.py 偵測到「待確認」會自動跳過此地區、不會產生成頁面。之後資料到齊後把「待確認」換成真實資料，重跑 python3 build_regions.py 即可正式上線 /taishan-wugu/。",
+  "slug": "taishan-wugu",
+  "region_name": "泰山・五股・林口・龜山",
+  "meta_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood 好心情好病情｜泰山五股林口龜山到府服務",
+  "meta_desc": "當你無法親自陪爸媽就醫，把接送交給我們。泰山、五股、林口、龜山地區無障礙輪椅接送（洗腎回診・醫院往返・復健接送，費用透明）與電動爬梯機上下樓（適用長照2.0補助，一般戶自付310元起），客服洽詢週一至週日07:00–21:00。",
+  "og_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood｜泰山五股林口龜山到府服務",
+  "og_desc": "你無法隨時在她身邊，但你可以選擇最好的代替。泰山、五股、林口、龜山無障礙輪椅接送與電動爬梯機上下樓（適用長照2.0補助），客服洽詢週一至週日07:00–21:00。",
+  "twitter_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood",
+  "twitter_desc": "泰山、五股、林口、龜山地區專業無障礙輪椅接送（自費）、電動爬梯機上下樓服務（長照2.0補助適用）。",
+  "geo_region": "TW-NWT",
+  "geo_placename": "新北市、桃園市",
+  "hero_eyebrow": "泰山・五股・林口・龜山 · 大台北地區 · 到府服務",
+  "area_section_desc": "FeelGoodHealGood 的無障礙接送與爬梯機服務涵蓋泰山、五股、林口、龜山地區，提供洗腎回診、就醫、復健、日常出行接送，歡迎來電或 LINE 詢問。",
+  "area_map_img": "area-map-taishan-wugu.svg",
+  "area_map_alt": "泰山・五股・林口・龜山地區服務範圍示意地圖，標示輔仁大學附設醫院、部立臺北醫院、亞東紀念醫院、林口長庚紀念醫院、衛生福利部桃園醫院、新仁醫院、新泰綜合醫院",
+  "area_groups": ["泰山 ・ 五股", "林口 ・ 龜山"],
+  "area_note": "不在上述區域？鄰近地區我們一樣服務<br>歡迎來電或 LINE 確認，部分較遠區域可能酌收交通費用",
+  "contact_region_label": "立刻預約卡位",
+  "qr_img": "qr-taishan-wugu.png",
+  "qr_alt": "泰山・五股・林口・龜山 LINE QR Code，點擊加好友",
+  "line_url": "https://lin.ee/N7vt5xA",
+  "line_oa_id": "@868vywql",
+  "line_oa_message": "您好，我想詢問無障礙接送服務",
+  "phones": [
+    {"num": "0919-059-763", "tel": "0919059763", "name": "何先生", "areas": ["泰山區", "五股區", "林口區", "龜山區"], "primary": true},
+    {"num": "0913-719-875", "tel": "0913719875", "name": "黃先生", "areas": ["泰山區", "五股區", "林口區", "龜山區"], "primary": false}
+  ],
+  "price_examples": [
+    {"person": "李伯伯", "time": "早晨 ・ 8:00", "route": "泰山（明志路三段老街）→ 輔仁大學附設醫院", "need": "輪椅接送", "cost": "500–600 元"},
+    {"person": "王阿姨", "time": "下午 ・ 14:00", "route": "林口（林口舊街・竹林山寺一帶）→ 林口長庚紀念醫院", "need": "輪椅接送", "cost": "500–600 元"},
+    {"person": "張爺爺", "time": "晚上 ・ 18:30", "route": "龜山（龜山工業區）→ 衛生福利部桃園醫院", "need": "輪椅接送", "cost": "800–900 元"}
+  ],
+  "footer_area_text": "泰山・五股・林口・龜山",
+  "area_served_cities": ["泰山", "五股", "林口", "龜山"],
+  "area_served_admin": ["新北市", "桃園市"],
+  "jsonld_date_modified": "2026-07-07"
+}

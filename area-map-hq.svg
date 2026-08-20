@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 918" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <radialGradient id="zone" cx="48%" cy="50%" r="68%">
+      <stop offset="0%" stop-color="#B9935A" stop-opacity="0.14"/>
+      <stop offset="70%" stop-color="#B9935A" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#B9935A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+
+  <!-- 底 -->
+  <rect width="1100" height="918" rx="24" fill="#F8F5EF"/>
+  <rect x="14" y="14" width="1072" height="890" rx="18" fill="none" stroke="#E7DCC8" stroke-width="1.5"/>
+
+  <!-- 服務範圍暈染（雙北・基隆・桃園，範圍較廣） -->
+  <polygon points="120,660 200,420 420,190 700,150 960,220 980,470 780,700 480,760 260,720" fill="url(#zone)" filter="url(#soft)"/>
+
+  <!-- 淡水河（示意走向） -->
+  <path d="M 700,150 C 680,240 650,320 600,400 C 540,490 460,540 400,580"
+        fill="none" stroke="#E9E0D0" stroke-width="26" stroke-linecap="round"/>
+  <text x="640" y="250" font-size="20" fill="#C9BCA4" transform="rotate(-58 640 250)" letter-spacing="6">淡水河</text>
+
+  <!-- 縣市（金點，代表整個行政區而非單一區） -->
+  <g fill="#B9935A">
+    <circle cx="640" cy="360" r="16"/>
+    <circle cx="380" cy="500" r="16"/>
+    <circle cx="930" cy="200" r="16"/>
+    <circle cx="170" cy="660" r="16"/>
+  </g>
+  <g font-size="38" font-weight="600" fill="#1C1C1E">
+    <text x="596" y="330">台北市</text>
+    <text x="330" y="470">新北市</text>
+    <text x="855" y="180">基隆市</text>
+    <text x="110" y="720">桃園市</text>
+  </g>
+
+  <!-- 常送醫院（金十字，雙北基桃各行政區代表醫院） -->
+  <g>
+    <g transform="translate(660,290)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">馬偕紀念醫院</text>
+    </g>
+    <g transform="translate(610,430)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">台大醫院</text>
+    </g>
+    <g transform="translate(500,220)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="-22" y="9" font-size="25" fill="#4A4438" text-anchor="end">台北榮總</text>
+    </g>
+    <g transform="translate(300,530)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">亞東紀念醫院</text>
+    </g>
+    <g transform="translate(430,600)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">雙和醫院</text>
+    </g>
+    <g transform="translate(930,270)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">基隆長庚醫院</text>
+    </g>
+    <g transform="translate(200,730)">
+      <rect x="-13" y="-13" width="26" height="26" rx="7" fill="#1C1C1E"/>
+      <path d="M -6,0 H 6 M 0,-6 V 6" stroke="#B9935A" stroke-width="4" stroke-linecap="round"/>
+      <text x="22" y="9" font-size="25" fill="#4A4438">衛生福利部桃園醫院</text>
+    </g>
+  </g>
+
+  <!-- 指北 -->
+  <g transform="translate(1022,80)">
+    <path d="M 0,-26 L 10,14 L 0,6 L -10,14 Z" fill="#B9935A"/>
+    <text x="0" y="42" font-size="22" fill="#9A8E76" text-anchor="middle">N</text>
+  </g>
+
+  <!-- 圖例 -->
+  <g transform="translate(58,806)">
+    <circle cx="10" cy="0" r="11" fill="#B9935A"/>
+    <text x="34" y="8" font-size="24" fill="#4A4438">服務涵蓋縣市</text>
+    <g transform="translate(230,0)">
+      <rect x="-2" y="-12" width="24" height="24" rx="6" fill="#1C1C1E"/>
+      <path d="M 4,0 H 16 M 10,-6 V 6" stroke="#B9935A" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="36" y="8" font-size="24" fill="#4A4438">常送醫院</text>
+    </g>
+    <text x="0" y="52" font-size="19" fill="#B0A48C">相對位置示意圖，非精確比例；縣市內各行政區皆提供服務，歡迎詢問</text>
+  </g>
+
+  <!-- 標題 -->
+  <text x="58" y="92" font-size="26" fill="#B9935A" letter-spacing="8" font-weight="500">雙北・基隆・桃園到府服務範圍</text>
+</svg>

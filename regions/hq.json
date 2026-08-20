@@ -1,0 +1,38 @@
+{
+  "_說明": "公司總頁 /hq/，涵蓋雙北・基隆・桃園全區，不設單一主力服務區。聯絡電話、LINE QR Code、服務範例暫時借用新莊・板橋首頁的既有資料先上線，之後有總頁專屬的電話/LINE/QR/真實案例後再換上，換完重跑 python3 build_regions.py 即可。",
+  "slug": "hq",
+  "region_name": "公司總覽（雙北・基隆・桃園）",
+  "meta_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood 好心情好病情｜雙北基桃到府服務",
+  "meta_desc": "當你無法親自陪爸媽就醫，把接送交給我們。服務涵蓋台北市、新北市、基隆市、桃園市的無障礙輪椅接送（洗腎回診・醫院往返・復健接送，費用透明）與電動爬梯機上下樓（適用長照2.0補助，一般戶自付310元起），客服洽詢週一至週日07:00–21:00。",
+  "og_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood｜雙北基桃到府服務",
+  "og_desc": "你無法隨時在她身邊，但你可以選擇最好的代替。服務涵蓋台北市、新北市、基隆市、桃園市的無障礙輪椅接送與電動爬梯機上下樓（適用長照2.0補助），客服洽詢週一至週日07:00–21:00。",
+  "twitter_title": "無障礙接送・爬梯機上下樓｜FeelGoodHealGood",
+  "twitter_desc": "雙北・基隆・桃園全區專業無障礙輪椅接送（自費）、電動爬梯機上下樓服務（長照2.0補助適用）。",
+  "geo_region": "TW",
+  "geo_placename": "台北市、新北市、基隆市、桃園市",
+  "hero_eyebrow": "雙北・基隆・桃園 · 全區到府服務",
+  "area_section_desc": "FeelGoodHealGood 的無障礙接送與爬梯機服務涵蓋台北市、新北市、基隆市、桃園市，提供洗腎回診、就醫、復健、日常出行接送，歡迎來電或 LINE 詢問實際服務範圍。",
+  "area_map_img": "area-map-hq.svg",
+  "area_map_alt": "雙北・基隆・桃園服務範圍示意地圖，標示台大醫院、台北榮總、馬偕紀念醫院、亞東紀念醫院、雙和醫院、基隆長庚醫院、衛生福利部桃園醫院",
+  "area_groups": ["台北市 ・ 新北市", "基隆市 ・ 桃園市"],
+  "area_note": "服務範圍持續擴大中<br>歡迎來電或 LINE 確認實際服務區域與車資",
+  "contact_region_label": "立刻預約卡位",
+  "qr_img": "qr-xinban.png",
+  "qr_alt": "FeelGoodHealGood LINE QR Code，點擊加好友",
+  "line_url": "https://lin.ee/QLKIggKl",
+  "line_oa_id": "@528ustwb",
+  "line_oa_message": "您好，我想詢問無障礙接送服務",
+  "phones": [
+    {"num": "0916-282-833", "tel": "0916282833", "name": "洪先生", "areas": ["新莊區", "板橋區"], "primary": false},
+    {"num": "0980-806-393", "tel": "0980806393", "name": "王先生", "areas": ["中和區", "永和區", "新店區"], "primary": true}
+  ],
+  "price_examples": [
+    {"person": "陳伯伯", "time": "早晨 ・ 7:30", "route": "永和（景安捷運站）→ 耕莘醫院", "need": "輪椅接送", "cost": "500–600 元"},
+    {"person": "林奶奶", "time": "中午 ・ 12:30", "route": "板橋（江北重劃區）→ 亞東醫院", "need": "輪椅接送", "cost": "600–700 元"},
+    {"person": "黃阿姨", "time": "晚上 ・ 19:30", "route": "新莊（迴龍捷運站）→ 台北醫院", "need": "輪椅接送", "cost": "700–800 元"}
+  ],
+  "footer_area_text": "雙北・基隆・桃園",
+  "area_served_cities": [],
+  "area_served_admin": ["台北市", "新北市", "基隆市", "桃園市"],
+  "jsonld_date_modified": "2026-08-20"
+}
