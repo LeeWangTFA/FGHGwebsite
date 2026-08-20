@@ -22,7 +22,7 @@
   "line_oa_id": "@528ustwb",
   "line_oa_message": "您好，我想詢問無障礙接送服務",
   "phones": [
-    {"num": "0967-106-658", "tel": "0967106658", "name": "洪先生", "areas": ["新莊區", "板橋區"], "primary": false},
+    {"num": "0916-282-833", "tel": "0916282833", "name": "洪先生", "areas": ["新莊區", "板橋區"], "primary": false},
     {"num": "0980-806-393", "tel": "0980806393", "name": "王先生", "areas": ["中和區", "永和區", "新店區"], "primary": true}
   ],
   "price_examples": [
